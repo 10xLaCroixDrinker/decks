@@ -2,10 +2,7 @@
   "name": "decks",
   "version": "0.0.0",
   "description": "My Slide Decks",
-  "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
+  "provate": true,
   "repository": {
     "type": "git",
     "url": "git://github.com/jking90/decks.git"
@@ -15,5 +12,18 @@
   "bugs": {
     "url": "https://github.com/jking90/decks/issues"
   },
-  "homepage": "https://github.com/jking90/decks"
+  "engines": {
+    "node": ">=0.10.0"
+  },
+  "homepage": "https://github.com/jking90/decks",
+  "dependencies": {
+    "grunt-exec": "~0.4.3",
+    "grunt-contrib-clean": "~0.5.0",
+    "docpad-plugin-ghpages": "~2.4.2",
+    "grunt-node-version": "~1.0.0",
+    "grunt": "~0.4.2",
+    "docpad-plugin-jshint": "~2.1.4",
+    "docpad-plugin-nodesass": "~2.2.1",
+    "docpad": "~6.59.6"
+  }
 }
