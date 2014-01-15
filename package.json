@@ -22,8 +22,9 @@
     "docpad-plugin-ghpages": "~2.4.2",
     "grunt-node-version": "~1.0.0",
     "grunt": "~0.4.2",
-    "docpad-plugin-jshint": "~2.1.4",
     "docpad-plugin-nodesass": "~2.2.1",
-    "docpad": "~6.59.6"
+    "docpad": "~6.59.6",
+    "docpad-plugin-eco": "~2.0.3",
+    "docpad-plugin-handlebars": "~2.3.0"
   }
 }
