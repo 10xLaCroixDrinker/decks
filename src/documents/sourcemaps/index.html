@@ -1,0 +1,47 @@
+---
+title: SCSS Sourcemaps
+layout: default
+---
+  <section>
+    <img src="/img/sass-logo.png" class="logo" alt="Sass" />
+    <h1>is awesome</h1>
+  </section>
+
+  <section data-markdown>
+    <script type="text/template">
+## Sass is a CSS preprocessor
+
+It allows us to extend the functionality of CSS with tools like functions, mixins and variables.
+    </script>
+  </section>
+
+  <section>
+    <h2>But preprocessing has its drawbacks</h2>
+    <p class="fragment">It drastically reduces the utility of the web inspector</p>
+  </section>
+
+The web inspector reports irrelevant filenames and line numbers
+(screenshot)
+
+Enter sourcemaps
+Sourcemaps tell the browser where the original Sass came from
+
+The CSS file must start with a comment telling the browser where to look for the sourcemap
+(example code)
+
+The sourcemap must know the relative path to the original Sass files
+
+The sourcemap will look something like this
+(example code)
+
+docpad-plugin-nodesass takes care of all of that for us
+
+So now when we look at the web inspector, it returns much more useful information
+(screenshot)
+
+We can even edit the Sass in the browser!
+
+Questions?
+
+
+docpad-plugin-nodesass takes care of all of this for us
