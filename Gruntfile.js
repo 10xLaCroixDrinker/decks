@@ -15,7 +15,7 @@ module.exports = function(grunt) {
       },
 
       deploy: {
-        cmd: './node_modules/.bin/docpad deploy-gh-pages'
+        cmd: './node_modules/.bin/docpad deploy-ghpages --env static'
       }
     }
   });
