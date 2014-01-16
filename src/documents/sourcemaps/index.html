@@ -3,7 +3,7 @@ title: SCSS Sourcemaps
 layout: default
 ---
   <section>
-    <img src="/img/sass-logo.png" class="logo" alt="Sass" />
+    <img src="sass-logo.png" class="logo" alt="Sass" />
     <h1>is awesome</h1>
   </section>
 
@@ -21,11 +21,11 @@ It allows us to extend the functionality of CSS with tools like functions, mixin
   </section>
 
   <section>
-    <h3>The web inspector reports irrelevant filenames and line numbers</h3>
-(screenshot)
+    <p>The web inspector reports irrelevant filenames and line numbers</p>
+    <img src="./screenshot-1.png" />
   </section>
 
-  <section>
+  <section data-markdown>
     <script type="text/template">
 ## Enter sourcemaps
 
@@ -33,34 +33,48 @@ Sourcemaps tell the browser where the original Sass came from
     </script>
   </section>
   
-  <section>
+  <section data-markdown>
     <script type="text/template">
-### The CSS file must start with a comment telling the browser where to look for the sourcemap
+The CSS file must start with a comment telling the browser where to look for the sourcemap
 
 ```css
-/*# sourceMappingURL=styles.css.map */
+/*# sourceMappingURL=./styles.css.map */
 ```
     </script>
   </section>
   
-  <section>
-    The sourcemap will look something like this
-(example code)
+  <section data-markdown>
+    <script type="text/template">
+The sourcemap will look something like this
+
+```json
+{
+  "version": "3",
+  "mappings": "4DAUA,qFAWQ,CACJ,OAAO,CAAE,KAAK,CAOlB,…",
+  "sources": ["../sass/_vars.css", "../sass/styles.scss", …],
+  "file": "styles.css"
+}
+```
+    </script>
   </section>
   
-  <section>
+  <section data-markdown>
+    <script type="text/template">
 docpad-plugin-nodesass takes care of all of that for us
+    </script>
   </section>
   
   <section>
-So now when we look at the web inspector, it returns much more useful information
-(screenshot)
+    <p>So now when we look at the web inspector, it returns much more useful information</p>
+    <img src="./screenshot-2.png" />
   </section>
   
   <section>
 We can even edit the Sass in the browser!
   </section>
   
-  <section>
-Questions?
+  <section data-markdown>
+    <script type="text/template">
+## Questions?
+    </script>
   </section>
