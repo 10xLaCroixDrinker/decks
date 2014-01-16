@@ -64,6 +64,22 @@ docpad-plugin-nodesass takes care of all of that for us
     </script>
   </section>
   
+  <section data-markdown>
+    <script type="text/template">
+Example implementation:
+
+```coffeescript
+docpadConfig = {
+  plugins:
+    nodesass:
+      environments:
+        development:
+          debugInfo: 'map'
+}
+```
+    </script>
+  </section>
+  
   <section>
     <p>So now when we look at the web inspector, it returns much more useful information</p>
     <img src="./screenshot-2.png" />
