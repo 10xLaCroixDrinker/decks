@@ -20,28 +20,47 @@ It allows us to extend the functionality of CSS with tools like functions, mixin
     <p class="fragment">It drastically reduces the utility of the web inspector</p>
   </section>
 
-The web inspector reports irrelevant filenames and line numbers
+  <section>
+    <h3>The web inspector reports irrelevant filenames and line numbers</h3>
 (screenshot)
+  </section>
 
-Enter sourcemaps
+  <section>
+    <script type="text/template">
+## Enter sourcemaps
+
 Sourcemaps tell the browser where the original Sass came from
+    </script>
+  </section>
+  
+  <section>
+    <script type="text/template">
+### The CSS file must start with a comment telling the browser where to look for the sourcemap
 
-The CSS file must start with a comment telling the browser where to look for the sourcemap
+```css
+/*# sourceMappingURL=styles.css.map */
+```
+    </script>
+  </section>
+  
+  <section>
+    The sourcemap will look something like this
 (example code)
-
-The sourcemap must know the relative path to the original Sass files
-
-The sourcemap will look something like this
-(example code)
-
+  </section>
+  
+  <section>
 docpad-plugin-nodesass takes care of all of that for us
-
+  </section>
+  
+  <section>
 So now when we look at the web inspector, it returns much more useful information
 (screenshot)
-
+  </section>
+  
+  <section>
 We can even edit the Sass in the browser!
-
+  </section>
+  
+  <section>
 Questions?
-
-
-docpad-plugin-nodesass takes care of all of this for us
+  </section>
