@@ -1,5 +1,5 @@
 ---
-title: SCSS Sourcemaps
+title: CSS Source Maps
 layout: default
 ---
   <section>
@@ -27,15 +27,15 @@ It allows us to extend the functionality of CSS with tools like functions, mixin
 
   <section data-markdown>
     <script type="text/template">
-## Enter sourcemaps
+## Enter CSS source maps
 
-Sourcemaps tell the browser where the original Sass came from
+Source maps tell the browser where the original Sass came from
     </script>
   </section>
   
   <section data-markdown>
     <script type="text/template">
-The CSS file must start with a comment telling the browser where to look for the sourcemap
+The CSS file must start with a comment telling the browser where to look for the source map
 
 ```css
 /*# sourceMappingURL=./styles.css.map */
@@ -45,7 +45,7 @@ The CSS file must start with a comment telling the browser where to look for the
   
   <section data-markdown>
     <script type="text/template">
-The sourcemap will look something like this
+The source map will look something like this
 
 ```json
 {
@@ -78,6 +78,11 @@ docpadConfig = {
 }
 ```
     </script>
+  </section>
+
+  <section>
+    <p>All you need now is to enable CSS source maps in Chrome</p>
+    <img class="fragment" src="./screenshot-3.png" />
   </section>
   
   <section>
