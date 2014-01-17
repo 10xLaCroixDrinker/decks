@@ -1,0 +1,99 @@
+---
+title: CSS Source Maps
+layout: default
+---
+  <section>
+    <img src="sass-logo.png" class="logo" alt="Sass" />
+    <h1>is awesome</h1>
+  </section>
+
+  <section data-markdown>
+    <script type="text/template">
+## Sass is a CSS preprocessor
+
+It allows us to extend the functionality of CSS with tools like functions, mixins and variables.
+    </script>
+  </section>
+
+  <section>
+    <h2>But preprocessing has its drawbacks</h2>
+    <p class="fragment">It drastically reduces the utility of the web inspector</p>
+  </section>
+
+  <section>
+    <p>The web inspector reports irrelevant filenames and line numbers</p>
+    <img src="./screenshot-1.png" />
+  </section>
+
+  <section data-markdown>
+    <script type="text/template">
+## Enter CSS source maps
+
+Source maps tell the browser where the original Sass came from
+    </script>
+  </section>
+  
+  <section data-markdown>
+    <script type="text/template">
+The CSS file must start with a comment telling the browser where to look for the source map
+
+```css
+/*# sourceMappingURL=./styles.css.map */
+```
+    </script>
+  </section>
+  
+  <section data-markdown>
+    <script type="text/template">
+The source map will look something like this
+
+```json
+{
+  "version": "3",
+  "mappings": "4DAUA,qFAWQ,CACJ,OAAO,CAAE,KAAK,CAOlB,…",
+  "sources": ["../sass/_vars.css", "../sass/styles.scss", …],
+  "file": "styles.css"
+}
+```
+    </script>
+  </section>
+  
+  <section data-markdown>
+    <script type="text/template">
+docpad-plugin-nodesass takes care of all of that for us
+    </script>
+  </section>
+  
+  <section data-markdown>
+    <script type="text/template">
+Example implementation:
+
+```coffeescript
+docpadConfig = {
+  plugins:
+    nodesass:
+      environments:
+        development:
+          debugInfo: 'map'
+          renderUnderscoreStylesheets: true
+          sourceMap: 'src/documents/css/.'
+}
+```
+    </script>
+  </section>
+
+  <section>
+    <p>All you need now is to enable CSS source maps in Chrome</p>
+    <img class="fragment" src="./screenshot-3.png" />
+  </section>
+  
+  <section>
+    <p>So now when we look at the web inspector, it returns much more useful information</p>
+    <img src="./screenshot-2.png" />
+  </section>
+  
+  <section data-markdown>
+    <script type="text/template">
+## Questions?
+    </script>
+  </section>

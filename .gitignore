@@ -13,6 +13,7 @@ logs
 results
 out
 
+.DS_Store
 .docpad.db
 npm-debug.log
 node_modules
