@@ -11,13 +11,31 @@ layout: default
     <script type="text/template">
 ## Sass is a CSS preprocessor
 
-It allows us to extend the functionality of CSS with tools like functions, mixins and variables.
+It allows us to extend the functionality of CSS with tools like mixins and variables.
+    </script>
+  </section>
+
+  <section data-markdown>
+    <script type="text/template">
+Mixins help us to write less code.
+
+Variables allow us to store reused values in one place.
+    </script>
+  </section>
+
+  <section data-markdown>
+    <script type="text/template">
+Sass makes writing CSS more like a programming language, rather than just style declarations.
     </script>
   </section>
 
   <section>
     <h2>But preprocessing has its drawbacks</h2>
-    <p class="fragment">It drastically reduces the utility of the web inspector</p>
+    <p>It drastically reduces the utility of the web inspector</p>
+  </section>
+
+  <section>
+    <p>The web inspector is a debugging tool built into the browser for web development</p>
   </section>
 
   <section>
@@ -29,7 +47,7 @@ It allows us to extend the functionality of CSS with tools like functions, mixin
     <script type="text/template">
 ## Enter CSS source maps
 
-Source maps tell the browser where the original Sass came from
+Source maps tell the browser where the original Sass came from, so that it can report on that instead of the compiled CSS
     </script>
   </section>
   
@@ -57,10 +75,24 @@ The source map will look something like this
 ```
     </script>
   </section>
+
+  <section data-markdown>
+    <script type="text/template">
+`version`: Source map spec version
+
+`mappings`: internal hashes that contain actual mappings
+
+`sources`: relative paths to Sass files being compiled
+
+`file`: relative path to the CSS file the map belongs to
+    </script>
+  </section>
   
   <section data-markdown>
     <script type="text/template">
-docpad-plugin-nodesass takes care of all of that for us
+## [docpad-plugin-nodesass](https://npmjs.org/package/docpad-plugin-nodesass)
+
+takes care of all of that for us
     </script>
   </section>
   
