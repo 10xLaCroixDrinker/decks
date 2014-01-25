@@ -57,13 +57,89 @@ by [Romaric Pascal](http://rhumaric.com)
     </section>
   </section>
 
-  <section data-markdown>
-    <script type="text/template">
-## How?
-    </script>
-  </section>
-  
   <section>
+    <section>
+      <h2>What are githooks?</h2>
+      <p class="fragment"><a href="http://git-scm.com/book/en/Customizing-Git-Git-Hooks">Githooks</a> are executable scripts that are bound to different events in git</p>
+    </section>
+    <section>
+      <h2>What events are available?</h2>
+      <p class="fragment">There's <a href="https://www.kernel.org/pub/software/scm/git/docs/githooks.html#_hooks">a whole bunch</a></p>
+      <code class="fragment">applypatch-msg, pre-applypatch, post-applypatch, pre-commit, prepare-commit-msg, commit-msg, post-commit, pre-rebase, post-checkout, post-merge, pre-receive, update, post-receive, post-update, pre-auto-gc, post-rewrite</code>
+    </section>
+  </section>
+
+  <section>
+    <section data-markdown>
+      <script type="text/template">
+## How?
+      </script>
+    </section>
+    <section data-markdown>
+      <script type="text/template">
+## Installation
+
+```bash
+$ npm install --save-dev grunt-githooks
+```
+      </script>
+    </section>
+    <section data-markdown>
+      <script type="text/template">
+## Example Gruntfile.js
+
+```javascript
+module.exports = function (grunt) {
+  grunt.initConfig({
+    ...
+    githooks: {
+      all: {
+        'pre-commit': 'test',
+      }
+    }
+  });
+  grunt.loadNpmTasks('grunt-githooks');
+};
+```
+      </script>
+    </section>
+    <section data-markdown>
+      <script type="text/template">
+## Bind the hooks
+
+```bash
+$ grunt githooks
+```
+      </script>
+    </section>
+  </section>
+
+  <section>
+    <section>
+      <h2>But githooks are bound to individual environments</h2>
+      <p class="fragment">How do we get people to use them?</p>
+    </section>
+    <section data-markdown>
+      <script type="text/template">
+## Grunt Prepare
+
+```javascript
+grunt.registerTask('prepare', ['githooks', 'bower:install', 'dependency_installer']);
+```
+      </script>
+    </section>
+    <section data-markdown>
+      <script type="text/template">
+## Node Bootstrap
+
+A script that Naomi wrote will run `grunt prepare` when a user first sets up the site
+      </script>
+    </section>
+  </section>
+
+  <section>
+    <h2>What if I need to commit and the pre-commit hook won't let me?</h2>
+    <pre class="fragment"><code class="bash">$ git commit -n (--no-verify)</code></pre>
   </section>
 
   <section>
