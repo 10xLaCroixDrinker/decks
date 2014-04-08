@@ -1,0 +1,21 @@
+.reveal {
+  font-size: 42px; }
+  .reveal pre {
+    font-size: 0.75em; }
+
+.reveal .green {
+  color: #699119; }
+
+.reveal .big {
+  font-size: 4em; }
+
+.reveal section .logo, .reveal section .illustration {
+  box-shadow: none;
+  border: 0;
+  font-size: 4em;
+  max-height: 350px; }
+
+@media (max-device-width: 480px) and (orientation: landscape) {
+  /*iPhone landscape for presenting via AirPlay*/
+  .reveal .controls {
+    display: none !important; } }

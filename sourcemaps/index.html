@@ -1,0 +1,211 @@
+<!doctype html>
+<html lang="en">
+
+  <head>
+    <meta charset="utf-8">
+
+    <title>CSS Source Maps</title>
+
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+    <link rel="stylesheet" href="../lib/reveal.min.css">
+    <link rel="stylesheet" href="../lib/reveal-beige.css" id="theme">
+    <link rel="stylesheet" href="../css/reveal.css">
+
+    <!-- For syntax highlighting -->
+    <link rel="stylesheet" href="../lib/reveal-zenburn.css">
+
+    <!-- If the query includes 'print-pdf', use the PDF print sheet -->
+    <script>
+      document.write( '<link rel="stylesheet" href="../lib/reveal-print/' + ( window.location.search.match( /print-pdf/gi ) ? 'pdf' : 'paper' ) + '.css" type="text/css" media="print">' );
+    </script>
+
+    <!--[if lt IE 9]>
+    <script src="../lib/js/html5shiv.js"></script>
+    <![endif]-->
+  </head>
+
+  <body>
+
+    <div class="reveal">
+
+      <!-- Any section element inside of this container is displayed as a slide -->
+      <div class="slides">
+
+        <section>
+    <img src="sass-logo.png" class="logo" alt="Sass" />
+    <h1>is awesome</h1>
+  </section>
+
+  <section data-markdown>
+    <script type="text/template">
+## Sass is a CSS preprocessor
+
+It allows us to extend the functionality of CSS with tools like mixins and variables.
+    </script>
+  </section>
+
+  <section data-markdown>
+    <script type="text/template">
+Mixins help us to write less code.
+
+Variables allow us to store reused values in one place.
+    </script>
+  </section>
+
+  <section data-markdown>
+    <script type="text/template">
+Sass makes writing CSS more like a programming language, rather than just style declarations.
+    </script>
+  </section>
+
+  <section>
+    <h2>But preprocessing has its drawbacks</h2>
+    <p>It drastically reduces the utility of the web inspector</p>
+  </section>
+
+  <section>
+    <p>The web inspector is a debugging tool built into the browser for web development</p>
+  </section>
+
+  <section>
+    <p>The web inspector reports irrelevant filenames and line numbers</p>
+    <img src="./screenshot-1.png" />
+  </section>
+
+  <section data-markdown>
+    <script type="text/template">
+## Enter CSS source maps
+
+Source maps tell the browser where the original Sass came from, so that it can report on that instead of the compiled CSS
+    </script>
+  </section>
+  
+  <section data-markdown>
+    <script type="text/template">
+The CSS file must start with a comment telling the browser where to look for the source map
+
+```css
+/*# sourceMappingURL=./styles.css.map */
+```
+    </script>
+  </section>
+  
+  <section data-markdown>
+    <script type="text/template">
+The source map will look something like this
+
+```json
+{
+  "version": "3",
+  "mappings": "4DAUA,qFAWQ,CACJ,OAAO,CAAE,KAAK,CAOlB,…",
+  "sources": ["../sass/_vars.css", "../sass/styles.scss", …],
+  "file": "styles.css"
+}
+```
+    </script>
+  </section>
+
+  <section data-markdown>
+    <script type="text/template">
+`version`: Source map spec version
+
+`mappings`: internal hashes that contain actual mappings
+
+`sources`: relative paths to Sass files being compiled
+
+`file`: relative path to the CSS file the map belongs to
+    </script>
+  </section>
+  
+  <section data-markdown>
+    <script type="text/template">
+## [docpad-plugin-nodesass](https://npmjs.org/package/docpad-plugin-nodesass)
+
+takes care of all of that for us
+    </script>
+  </section>
+  
+  <section data-markdown>
+    <script type="text/template">
+Example implementation:
+
+```coffeescript
+docpadConfig = {
+  plugins:
+    nodesass:
+      environments:
+        development:
+          debugInfo: 'map'
+          renderUnderscoreStylesheets: true
+          sourceMap: 'src/documents/css/.'
+}
+```
+    </script>
+  </section>
+
+  <section>
+    <p>All you need now is to enable CSS source maps in Chrome</p>
+    <img class="fragment" src="./screenshot-3.png" />
+  </section>
+  
+  <section>
+    <p>So now when we look at the web inspector, it returns much more useful information</p>
+    <img src="./screenshot-2.png" />
+  </section>
+  
+  <section data-markdown>
+    <script type="text/template">
+## Questions?
+    </script>
+  </section>
+
+      </div>
+
+
+    </div>
+
+    <script src="../lib/head.min.js"></script>
+    <script src="../lib/reveal.min.js"></script>
+
+    <script>
+
+      // Full list of configuration options available here:
+      // https://github.com/hakimel/reveal.js#configuration
+      Reveal.initialize({
+        controls: true,
+        progress: true,
+        history: true,
+        center: true,
+
+        theme: Reveal.getQueryHash().theme, // available themes are in /css/theme
+        transition: Reveal.getQueryHash().transition || 'default', // default/cube/page/concave/zoom/linear/fade/none
+
+        // Optional libraries used to extend on reveal.js
+        dependencies: [
+          { src: '../lib/classList.js', condition: function() { return !document.body.classList; } },
+          { src: '../plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+          { src: '../plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+          { src: '../plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+          { src: '../plugin/zoom-js/zoom.js', async: true, condition: function() { return !!document.body.classList; } },
+          { src: '../plugin/notes/notes.js', async: true, condition: function() { return !!document.body.classList; } }
+        ]
+      });
+
+    </script>
+    <script type="text/javascript">
+      var _gaq = _gaq || [];
+      _gaq.push(['_setAccount', 'UA-36088194-1']);
+      _gaq.push(['_trackPageview']);
+
+      (function() {
+        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+      })();
+    </script>
+  </body>
+</html>
