@@ -10,7 +10,7 @@
   "author": "Jamie King <hello@jamieking.me> (http://jamieking.me)",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/jking90/decks/issues"
+    "url": "https://github.com/10xLaCroixDrinker/decks/issues"
   },
   "engines": {
     "node": ">=0.10.0"
